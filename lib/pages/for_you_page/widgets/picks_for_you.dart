@@ -11,8 +11,8 @@ class PicksForYou extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: ListView.builder(
+        physics: NeverScrollableScrollPhysics(),
           itemCount: NewsConstants.newsInfo.length,
-          // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
           itemBuilder: (context, index) {
           var newsInfo = NewsConstants.newsInfo[index];
           return Container(

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_news/pages/following/following_page.dart';
 import 'package:google_news/pages/for_you_page/for_you_page.dart';
-
-import '../following/following_page.dart';
-import '../headines_page/headlines_page.dart';
+import 'package:google_news/pages/headines_page/headlines_page.dart';
 
 class ButtomNabBar extends StatefulWidget {
   const ButtomNabBar({super.key});
@@ -12,58 +11,59 @@ class ButtomNabBar extends StatefulWidget {
   State<ButtomNabBar> createState() => _ButtomNabBarState();
 }
 
-class _ButtomNabBarState extends State<ButtomNabBar> with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    _tabController = TabController(length: 4, vsync: this);
-    super.initState();
-  }
+class _ButtomNabBarState extends State<ButtomNabBar> {
+  int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      /// botom lav bar
-      bottomNavigationBar: Material(
-        color: Colors.black,
-        textStyle: TextStyle(color: Colors.white),
-        child: TabBar(
-          controller: _tabController,
-          tabs: [
-            Tab(
-              icon: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Icon(Icons.add_box_outlined)),
-              text: "For you",
-            ),
-            Tab(
+    return Scaffold(
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        indicatorColor: Colors.lightBlue.shade200,
+        selectedIndex: currentPageIndex,
+        destinations:  <Widget>[
+          NavigationDestination(
+            icon:Image.asset("assets/icons/foryou.png"),
+            label: 'For you',
+          ),
+          NavigationDestination(
+            icon: SvgPicture.asset("assets/icons/headlines.svg"),
+            label: 'Headlines',
+          ),
+          NavigationDestination(
+            icon: SvgPicture.asset("assets/icons/following.svg"),
+            label: 'Following',
+          ),
 
-              icon: Container(child: SvgPicture.asset("assets/icons/headlines.svg")),
-              text: "Headlines",
-            ),
-            Tab(
-              icon: Container(child: SvgPicture.asset("assets/icons/following.svg")),
-              text: "Following",
-            ),
-
-            Tab(
-              icon: Container(child: SvgPicture.asset("assets/icons/following.svg")),
-              text: "Newsstand",
-            ),
-          ],
-        ),
+          NavigationDestination(
+            icon: Image.asset("assets/icons/newsstand.png"),
+            label: 'Newsstand',
+          ),
+        ],
       ),
+      body: <Widget>[
+       /// for you page
+       ForYouPage(),
 
-      body: TabBarView(controller: _tabController, children: [
-       Container(child: ForYouPage(),),
-       Container(child: HeadlinesPage(),),
-       Container(child: HeadlinesPage(),),
-       Container(child: HeadlinesPage(),)
-      ]),
 
+        ///  headlines
+        HeadlinesPage(),
+
+
+        /// following page
+        Following_page(),
+
+
+        /// newsstand
+        Following_page()
+
+      ]
+
+      [currentPageIndex],
     );
   }
 }

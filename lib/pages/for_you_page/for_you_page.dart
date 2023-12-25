@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_news/pages/widgets/appbar.dart';
 import 'widgets/picks_for_you.dart';
 
 class ForYouPage extends StatelessWidget {
@@ -14,44 +15,47 @@ class ForYouPage extends StatelessWidget {
         floatHeaderSlivers: true,
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
-            SliverAppBar(
-              backgroundColor: Color(0xFF10001A),
-              centerTitle: true,
-              leading: Icon(
-                Icons.search,
-                color: Colors.white,
-              ),
-              title: Text(
-                "Google News",
-                style: TextStyle(color: Colors.white),
-              ),
-              actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: CircleAvatar(
-                    backgroundColor: Colors.green,
-                    child: Container(
-                      child: Text(
-                        "S",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
+            AppBarWidget()
+            // SliverAppBar(
+            //   backgroundColor: Color(0xFF10001A),
+            //   centerTitle: true,
+            //   leading: Icon(
+            //     Icons.search,
+            //     color: Colors.white,
+            //   ),
+            //   title: Text(
+            //     "Google News",
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            //   actions: [
+            //     IconButton(
+            //       onPressed: () {},
+            //       icon: CircleAvatar(
+            //         backgroundColor: Colors.green,
+            //         child: Container(
+            //           child: Text(
+            //             "S",
+            //             style: TextStyle(color: Colors.white),
+            //           ),
+            //         ),
+            //       ),
+            //     )
+            //   ],
+            // ),
           ];
         },
         body: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
-
             children: [
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Top stories  >",
-                  style: TextStyle(color: Color(0xFF4285F4), fontSize: 26),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Top stories  >",
+                    style: TextStyle(color: Color(0xFF4285F4), fontSize: 26),
+                  ),
                 ),
               ),
               Container(
@@ -205,7 +209,7 @@ class ForYouPage extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  height: height,
+                  height: height*2.5,
                   child: PicksForYou(),
                 ),
               ),

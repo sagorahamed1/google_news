@@ -8,8 +8,8 @@ class HeadlinesPage extends StatefulWidget {
   State<HeadlinesPage> createState() => _HeadlinesPageState();
 }
 
-class _HeadlinesPageState extends State<HeadlinesPage>
-    with SingleTickerProviderStateMixin {
+class _HeadlinesPageState extends State<HeadlinesPage> with SingleTickerProviderStateMixin {
+
   late TabController _tabController;
 
   @override
