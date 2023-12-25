@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_news/pages/widgets/appbar.dart';
+import 'package:google_news/utils/app_colors.dart';
+import '../widgets/buttomsheet_widget.dart';
 import 'widgets/picks_for_you.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
+
+
 
 class ForYouPage extends StatelessWidget {
   const ForYouPage({Key? key});
@@ -12,49 +17,23 @@ class ForYouPage extends StatelessWidget {
 
     return Scaffold(
       body: NestedScrollView(
-        floatHeaderSlivers: true,
+         floatHeaderSlivers: true,
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
             AppBarWidget()
-            // SliverAppBar(
-            //   backgroundColor: Color(0xFF10001A),
-            //   centerTitle: true,
-            //   leading: Icon(
-            //     Icons.search,
-            //     color: Colors.white,
-            //   ),
-            //   title: Text(
-            //     "Google News",
-            //     style: TextStyle(color: Colors.white),
-            //   ),
-            //   actions: [
-            //     IconButton(
-            //       onPressed: () {},
-            //       icon: CircleAvatar(
-            //         backgroundColor: Colors.green,
-            //         child: Container(
-            //           child: Text(
-            //             "S",
-            //             style: TextStyle(color: Colors.white),
-            //           ),
-            //         ),
-            //       ),
-            //     )
-            //   ],
-            // ),
           ];
         },
         body: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.only(right: 15,left: 15),
           child: ListView(
             children: [
               Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.topLeft,
                 child: TextButton(
                   onPressed: () {},
                   child: Text(
                     "Top stories  >",
-                    style: TextStyle(color: Color(0xFF4285F4), fontSize: 26),
+                    style: TextStyle(color: AppColors.cyan, fontSize: 26.dp),
                   ),
                 ),
               ),
@@ -73,25 +52,27 @@ class ForYouPage extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    const Text(
+                     Text(
                       "Watch: This Insanely Detailed Model of the Ferrari 296 GT3 Is the Coolest Car You’ll See Today",
                       style: TextStyle(
-                          fontSize: 22,
+                          fontSize: 19.dp,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFFFFFFFF)),
+                          color: Colors.black),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Row(
+
+                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "2h",
                           style: TextStyle(
-                              color: Color(0xFF7F8EA3), fontSize: 18),
+                              color: const Color(0xFF7F8EA3), fontSize: 18.dp
+                          ),
                         ),
-                        Icon(Icons.more_vert, color: Color(0xFF7F8EA3))
+                         IconButton(onPressed: (){
+                           showBottomSheetWidget(context);
+                         }, icon: Icon(Icons.more_vert,color: Color(0xFF7F8EA3),))
+
                       ],
                     )
                   ],
@@ -104,19 +85,19 @@ class ForYouPage extends StatelessWidget {
                 height: 2,
                 color: Color(0xFF94A3B8),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Row(
                 children: [
-                  const Expanded(
+                   Expanded(
                     flex: 6,
                     child: Text(
                       "5 troops killed in Gaza; PM denies US dissuaded him from hitting Hezbollah in October",
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18.dp,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFFFFFFFF)),
+                          color: AppColors.black),
                     ),
                   ),
                   Expanded(
@@ -129,21 +110,23 @@ class ForYouPage extends StatelessWidget {
                             "assets/images/roket.png",
                             fit: BoxFit.cover,
                             height: 100,
-                            width: 50,
+                            width: 50.h,
                           ))),
                 ],
               ),
               const SizedBox(
                 height: 20,
               ),
-              const Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "14h",
-                    style: TextStyle(color: Color(0xFF7F8EA3), fontSize: 16),
+                    style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
-                  Icon(Icons.more_vert, color: Color(0xFF7F8EA3))
+                  IconButton(onPressed: (){
+                    showBottomSheetWidget(context);
+                  }, icon: Icon(Icons.more_vert,color: Color(0xFF7F8EA3),))
                 ],
               ),
               const SizedBox(
@@ -153,7 +136,7 @@ class ForYouPage extends StatelessWidget {
                 height: 2,
                 color: Color(0xFF94A3B8),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               Row(
                 children: [
                   const Expanded(
@@ -163,7 +146,7 @@ class ForYouPage extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFFFFFFFF)),
+                          color: Colors.black),
                     ),
                   ),
                   Expanded(
@@ -183,14 +166,16 @@ class ForYouPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "10h",
-                    style: TextStyle(color: Color(0xFF7F8EA3), fontSize: 16),
+                    style: TextStyle(color: Color(0xFF7F8EA3), fontSize: 16.dp),
                   ),
-                  Icon(Icons.more_vert, color: Color(0xFF7F8EA3))
+                  IconButton(onPressed: (){
+                    showBottomSheetWidget(context);
+                  }, icon: Icon(Icons.more_vert,color: Color(0xFF7F8EA3),))
                 ],
               ),
               const SizedBox(
@@ -200,18 +185,16 @@ class ForYouPage extends StatelessWidget {
                 height: 2,
                 color: Color(0xFF94A3B8),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               const Text(
                 "Picks for you",
                 style: TextStyle(color: Color(0xFF4285F4), fontSize: 26),
               ),
-              Expanded(
-                child: Container(
-                  height: height*2.5,
-                  child: PicksForYou(),
-                ),
+              Container(
+                height: height*2.5,
+                child: PicksForYou(),
               ),
             ],
           ),

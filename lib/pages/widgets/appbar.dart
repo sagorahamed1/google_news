@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_news/utils/app_colors.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({super.key});
@@ -6,15 +7,15 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  SliverAppBar(
-      backgroundColor: Color(0xFF10001A),
+      backgroundColor: AppColors.white,
       centerTitle: true,
       leading: Icon(
         Icons.search,
-        color: Colors.white,
+        color: AppColors.black,
       ),
       title: Text(
         "Google News",
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: AppColors.black),
       ),
       actions: [
         IconButton(

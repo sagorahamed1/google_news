@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_news/constants/news_constants/news_constants.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:google_news/utils/app_colors.dart';
+import '../../widgets/buttomsheet_widget.dart';
 
 class PicksForYou extends StatelessWidget {
   const PicksForYou({super.key});
@@ -34,32 +37,32 @@ class PicksForYou extends StatelessWidget {
                 Row(
                   children: [
                     SvgPicture.asset("${newsInfo["companyLogo"]}"),
-                    Text("  ${newsInfo["companyName"]}",style: TextStyle(color: Colors.white),)
+                    Text("  ${newsInfo["companyName"]}",style: TextStyle(color: AppColors.black),)
                   ],
                 ),
                 Text(
                   "${newsInfo["headLineText"]}",
                   style: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFFFFFFFF)),
+                      color: AppColors.black),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Row(
+
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "2h",
                       style: TextStyle(
-                          color: Color(0xFF7F8EA3), fontSize: 18),
+                          color: Color(0xFF7F8EA3), fontSize: 18.dp),
                     ),
-                    Icon(Icons.more_vert, color: Color(0xFF7F8EA3))
+                    IconButton(onPressed: (){
+                      showBottomSheetWidget(context);
+                    }, icon: Icon(Icons.more_vert,color: Color(0xFF7F8EA3),))
                   ],
                 ),
-                const SizedBox(
-                  height: 34,
+                 SizedBox(
+                  height: 4.h,
                 ),
               ],
             ),

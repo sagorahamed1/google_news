@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_news/constants/following_new/following_new_constants.dart';
 import 'package:google_news/pages/following/widget/following_items.dart';
 import 'package:google_news/pages/following/widget/newsListView.dart';
+import 'package:google_news/utils/app_colors.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
 
 class Following_page extends StatelessWidget {
   const Following_page({super.key});
@@ -12,21 +14,21 @@ class Following_page extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.white,
       body: NestedScrollView(
         floatHeaderSlivers: true,
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
             SliverAppBar(
-              backgroundColor: Color(0xFF10001A),
+              backgroundColor: AppColors.white,
               centerTitle: true,
               leading: const Icon(
                 Icons.search,
-                color: Colors.white,
+                color: AppColors.black,
               ),
               title: const Text(
-                "Google News",
-                style: TextStyle(color: Colors.white),
+                "Following",
+                style: TextStyle(color: AppColors.black),
               ),
               actions: [
                 IconButton(
@@ -53,7 +55,7 @@ class Following_page extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Recently followed",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: AppColors.black),
                   )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -74,7 +76,7 @@ class Following_page extends StatelessWidget {
                         ),
                         const Text(
                           "Library \n ",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color:AppColors.black),
                         )
                       ],
                     ),
@@ -94,7 +96,7 @@ class Following_page extends StatelessWidget {
                         ),
                         const Text(
                           "Saved \n Stories",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color:AppColors.black),
                         )
                       ],
                     ),
@@ -118,7 +120,7 @@ class Following_page extends StatelessWidget {
                             ))),
                         const Text(
                           "Internet \n Security",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: AppColors.black),
                         )
                       ],
                     ),
@@ -142,7 +144,7 @@ class Following_page extends StatelessWidget {
                             ))),
                         const Text(
                           "  Online \n education",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: AppColors.black),
                         )
                       ],
                     ),
@@ -150,7 +152,7 @@ class Following_page extends StatelessWidget {
                 ],
               ),
               Divider(
-                color: Colors.white10,
+                color: Colors.black12,
                 thickness: 13,
               ),
               SizedBox(
@@ -173,9 +175,9 @@ class Following_page extends StatelessWidget {
                           child: Text("IS"),
                         ),
                       ),
-                      const Text(
+                       Text(
                         "Internet Security",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
+                        style: TextStyle(color: AppColors.black, fontSize: 18.dp),
                       )
                     ],
                   ),
@@ -196,11 +198,11 @@ class Following_page extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Follow your interests ", style: TextStyle(color: Colors.white,fontSize: 25),),
+                  Text("Follow your interests ", style: TextStyle(color: AppColors.black,fontSize: 25.dp),),
                   Icon(Icons.more_vert,color: Colors.white12,)
                 ],
               ),
-              Text("Choose topics that'll appear in your For You news feed and under what your are Following", style: TextStyle(color: Colors.white),),
+              Text("Choose topics that'll appear in your For You news feed and under what your are Following", style: TextStyle(color:AppColors.black),),
 
 
 

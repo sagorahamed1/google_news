@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_news/pages/home/home_page.dart';
-
+import 'package:flutter_sizer/flutter_sizer.dart';
 import 'pages/buttom_nav_bar/bottom_nav_bar.dart';
+import 'utils/app_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,14 +12,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Google News',
-        theme: ThemeData(
-          // primarySwatch: Colors.blue,
-          scaffoldBackgroundColor: Color(0xFF10001A),
-        ),
-      home: ButtomNabBar()
+    return FlutterSizer(
+      builder: (p0, p1, p2) {
+         return MaterialApp(
+             debugShowCheckedModeBanner: false,
+             title: 'Google News',
+             theme: ThemeData(
+               scaffoldBackgroundColor: AppColors.white,
+             ),
+             home: ButtomNabBar()
+         );
+      },
     );
   }
 }

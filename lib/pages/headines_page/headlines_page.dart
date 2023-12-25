@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_news/pages/for_you_page/widgets/picks_for_you.dart';
+import 'package:google_news/utils/app_colors.dart';
 
 class HeadlinesPage extends StatefulWidget {
   HeadlinesPage({super.key});
@@ -25,24 +26,23 @@ class _HeadlinesPageState extends State<HeadlinesPage> with SingleTickerProvider
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.white,
       body: NestedScrollView(
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             SliverAppBar(
-              // snap: true,
               floating: true,
                pinned: true,
-              backgroundColor: Color(0xFF10001A),
+              backgroundColor: AppColors.white,
               centerTitle: true,
               leading: Icon(
                 Icons.search,
-                color: Colors.white,
+                color: AppColors.black,
               ),
               title: Text(
                 "Headlines",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: AppColors.black),
               ),
               actions: [
                 IconButton(
@@ -59,6 +59,8 @@ class _HeadlinesPageState extends State<HeadlinesPage> with SingleTickerProvider
                 )
               ],
               bottom: TabBar(
+                tabAlignment: TabAlignment.start,
+                dividerHeight: 0,
                 controller: _tabController,
                 isScrollable: true,
                 tabs: [
@@ -77,11 +79,11 @@ class _HeadlinesPageState extends State<HeadlinesPage> with SingleTickerProvider
        body:  Padding(
          padding: const EdgeInsets.all(10),
          child: ListView(
-
+           physics: NeverScrollableScrollPhysics(),
            children: [
 
              Container(
-               height: height,
+               height: height*2.5 ,
                child: TabBarView(
                  controller: _tabController,
                  children: [

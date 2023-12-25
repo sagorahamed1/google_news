@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_news/utils/app_colors.dart';
 
 import '../../../constants/following_new/following_new_constants.dart';
 
@@ -21,7 +23,7 @@ class NewsListView extends StatelessWidget {
             Row(
               children: [
                 SvgPicture.asset("${newsInfo["companyLogo"]}"),
-                Text("   ${newsInfo["companyName"]}",style: TextStyle(color:Colors.white),)
+                Text("   ${newsInfo["companyName"]}",style: TextStyle(color: AppColors.black),)
               ],
             ),
             Row(
@@ -30,10 +32,10 @@ class NewsListView extends StatelessWidget {
                   flex: 6,
                   child: Text(
                     "${newsInfo["headLineText"]}",
-                    style: const TextStyle(
-                        fontSize: 18,
+                    style:  TextStyle(
+                        fontSize: 17.dp,
                         fontWeight: FontWeight.w600,
-                        color: Color(0xFFFFFFFF)),
+                        color: AppColors.black),
                   ),
                 ),
                 Expanded(
